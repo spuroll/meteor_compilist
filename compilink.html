@@ -1,0 +1,43 @@
+<head>
+  <title>Compilist</title>
+</head>
+
+<body>
+  <h1>Compilist</h1>
+  <p>Exhaustively compiling resources on your favorite subjects.</p>
+
+  {{> rankedLinks}}
+  <br>
+  <p>Add your own...</p>
+  {{> addLinkForm}}
+</body>
+
+<template name="rankedLinks">
+  <table>
+    {{#each link}}
+      <tr>
+      	<td class="linkScore">{{score}}</td> 
+        <td class="linkInfo">
+          <a href="{{site}}" target="_blank">{{head}}</a><br>
+          {{info}}<br>
+          <em>{{site}}</em>
+        </td>
+      </tr>
+    {{/each}}
+  </table>
+
+  <br>
+  <input type="button" value="Unique!" class="increment">
+  <input type="button" value="Seen It" class="decrement">
+  <input type="button" value="Remove" class="remove">
+
+</template>
+
+<template name="addLinkForm">
+  <form>
+    <input type="text" value="Title" name="formHead"><br>
+    <input type="text" value="http://" name="formLink"><br>
+    <input type="text" value="Short Description" name="formInfo"><br>
+    <input type="submit" value="Add Link">
+  </form>
+</template>
