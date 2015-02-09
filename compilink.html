@@ -4,13 +4,12 @@
 
 <body>
   {{> loginButtons}}
-  
+
   <h1>Compilist</h1>
   <p>Exhaustively compiling resources on your favorite subjects.</p>
 
   {{> rankedLinks}}
   <br>
-  <p>Add your own...</p>
   {{> addLinkForm}}
 </body>
 
@@ -29,17 +28,21 @@
   </table>
 
   <br>
-  <input type="button" value="Unique!" class="increment">
-  <input type="button" value="Seen It" class="decrement">
-  <input type="button" value="Remove" class="remove">
-
+  {{#if currentUser}}    
+    <input type="button" value="Unique!" class="increment">
+    <input type="button" value="Seen It" class="decrement">
+    <input type="button" value="Remove" class="remove">
+  {{/if}}
 </template>
 
 <template name="addLinkForm">
-  <form>
-    <input type="text" value="Title" name="formHead"><br>
-    <input type="text" value="http://" name="formLink"><br>
-    <input type="text" value="Short Description" name="formInfo"><br>
-    <input type="submit" value="Add Link">
-  </form>
+  {{#if currentUser}}
+    <p>Add your own...</p>
+    <form>
+      <input type="text" value="Title" name="formHead"><br>
+      <input type="text" value="http://" name="formLink"><br>
+      <input type="text" value="Short Description" name="formInfo"><br>
+      <input type="submit" value="Add Link">
+    </form>
+  {{/if}}
 </template>
